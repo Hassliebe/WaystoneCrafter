@@ -194,13 +194,6 @@ namespace WaystoneCrafter
             },
             new ModDefinition
             {
-                InternalName = "MapMonstersArmoured",
-                DisplayName = "of Endurance",
-                Description = "Monsters are Armoured\n70% increased Waystones found in Area",
-                IsPrefix = false
-            },
-            new ModDefinition
-            {
                 InternalName = "MapMonstersEvasive",
                 DisplayName = "of the Blur",
                 Description = "Monsters are Evasive\n+% Waystones found",
@@ -229,13 +222,6 @@ namespace WaystoneCrafter
             },
             new ModDefinition
             {
-                InternalName = "MapMonstersStunAndAilmentThreshold",
-                DisplayName = "of the Unwavering",
-                IsPrefix = false,
-                Description = "+% Monster Ailment & Stun Threshold\n+% Waystones found"
-            },
-            new ModDefinition
-            {
                 InternalName = "MapMonstersArmourBreak",
                 DisplayName = "of Shattering",
                 Description = "Monsters Break Armour\n+% Waystones found",
@@ -253,13 +239,6 @@ namespace WaystoneCrafter
                 InternalName = "MapMonsterChaosDamage",
                 DisplayName = "of Armageddon",
                 Description = "Monsters deal (26–30)% of Damage as Extra Chaos\n75% increased Waystones found in Area",
-                IsPrefix = false
-            },
-            new ModDefinition
-            {
-                InternalName = "MapMonstersStunBuildup",
-                DisplayName = "of Impact",
-                Description = "Monsters have 100% increased Stun Buildup\n95% increased Waystones found in Area",
                 IsPrefix = false
             },
             new ModDefinition
@@ -327,7 +306,7 @@ namespace WaystoneCrafter
             },
             new ModDefinition
             {
-                InternalName = "MapPlayersGainReducedFlaskCharges",
+                InternalName = "MapPlayerFlaskChargeGain",
                 DisplayName = "of Drought",
                 Description = "Reduced Flask Charges\n+% Waystones found",
                 IsPrefix = false
@@ -587,13 +566,6 @@ namespace WaystoneCrafter
                 DisplayName = "of Flames",
                 IsPrefix = false,
                 Description = "Areas contain Burning Ground\nx% increased Waystones found in Area"
-            },
-            new ModDefinition
-            {
-                InternalName = "MapPlayerFlaskChargeGain",
-                DisplayName = "of Drought",
-                IsPrefix = false,
-                Description = "x% reduced Flask Charges gained\nx% increased Waystones found in Area"
             },
             new ModDefinition
             {

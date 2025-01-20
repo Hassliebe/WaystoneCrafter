@@ -728,16 +728,16 @@ namespace WaystoneCrafter
             ModSettings["MapMonsterCriticalStrikesAndDamage"] = new ModSetting { IsGoodMod = DestructionGood, IsBannedMod = DestructionBanned };
             ModSettings["MapMonsterLife"] = new ModSetting { IsGoodMod = ToughnessGood, IsBannedMod = ToughnessBanned };
             ModSettings["MapMonstersAllResistances"] = new ModSetting { IsGoodMod = PrismGood, IsBannedMod = PrismBanned };
-            ModSettings["MapMonstersArmoured"] = new ModSetting { IsGoodMod = EnduranceGood, IsBannedMod = EnduranceBanned };
+            ModSettings["MapMonsterArmoured"] = new ModSetting { IsGoodMod = EnduranceGood, IsBannedMod = EnduranceBanned };
             ModSettings["MapMonstersEvasive"] = new ModSetting { IsGoodMod = BlurGood, IsBannedMod = BlurBanned };
             ModSettings["MapMonstersEnergyShield"] = new ModSetting { IsGoodMod = BufferingGood, IsBannedMod = BufferingBanned };
             ModSettings["MapPoisoning"] = new ModSetting { IsGoodMod = VenomGood, IsBannedMod = VenomBanned };
             ModSettings["MapBleeding"] = new ModSetting { IsGoodMod = PuncturingGood, IsBannedMod = PuncturingBanned };
-            ModSettings["MapMonstersStunAndAilmentThreshold"] = new ModSetting { IsGoodMod = UnwaveringGood, IsBannedMod = UnwaveringBanned };
+            ModSettings["MapMonstersStunAilmentThreshold"] = new ModSetting { IsGoodMod = UnwaveringGood, IsBannedMod = UnwaveringBanned };
             ModSettings["MapMonstersArmourBreak"] = new ModSetting { IsGoodMod = ShatteringGood, IsBannedMod = ShatteringBanned };
             ModSettings["MapMonstersAccuracy"] = new ModSetting { IsGoodMod = PrecisionGood, IsBannedMod = PrecisionBanned };
             ModSettings["MapMonsterChaosDamage"] = new ModSetting { IsGoodMod = ArmageddonGood, IsBannedMod = ArmageddonBanned };
-            ModSettings["MapMonstersStunBuildup"] = new ModSetting { IsGoodMod = ImpactGood, IsBannedMod = ImpactBanned };
+            ModSettings["MapMonsterStunBuildup"] = new ModSetting { IsGoodMod = ImpactGood, IsBannedMod = ImpactBanned };
             ModSettings["MapMonstersAilmentChance"] = new ModSetting { IsGoodMod = OverpoweringGood, IsBannedMod = OverpoweringBanned };
             ModSettings["MapMonsterMultipleProjectiles"] = new ModSetting { IsGoodMod = SplittingGood, IsBannedMod = SplittingBanned };
             ModSettings["MapMonsterAreaOfEffect"] = new ModSetting { IsGoodMod = GiantsGood, IsBannedMod = GiantsBanned };
@@ -747,7 +747,7 @@ namespace WaystoneCrafter
             ModSettings["MapMonstersElementalPenetration"] = new ModSetting { IsGoodMod = PenetrationGood, IsBannedMod = PenetrationBanned };
             ModSettings["MapPlayerMaxResists"] = new ModSetting { IsGoodMod = ExposureGood, IsBannedMod = ExposureBanned };
             ModSettings["MapPlayerReducedRegen"] = new ModSetting { IsGoodMod = SmotheringGood, IsBannedMod = SmotheringBanned };
-            ModSettings["MapPlayersGainReducedFlaskCharges"] = new ModSetting { IsGoodMod = DroughtGood, IsBannedMod = DroughtBanned };
+            ModSettings["MapPlayerFlaskChargeGain"] = new ModSetting { IsGoodMod = DroughtGood, IsBannedMod = DroughtBanned };
             ModSettings["MapPlayerCooldownRecovery"] = new ModSetting { IsGoodMod = FatigueGood, IsBannedMod = FatigueBanned };
             ModSettings["MapMonstersBaseSelfCriticalMultiplier"] = new ModSetting { IsGoodMod = ObstructionGood, IsBannedMod = ObstructionBanned };
             ModSettings["MapMonstersCurseEffectOnSelfFinal"] = new ModSetting { IsGoodMod = HexwardedGood, IsBannedMod = HexwardedBanned };
