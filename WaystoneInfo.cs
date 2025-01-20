@@ -6,6 +6,7 @@ using ExileCore2.PoEMemory.Components;
 using ExileCore2.PoEMemory.MemoryObjects;
 using ExileCore2.Shared.Enums;
 using ExileCore2.Shared.Helpers;
+using ExileCore2.Shared.Nodes;
 using WaystoneCrafter;
 
 namespace WaystoneCrafter
@@ -54,22 +55,36 @@ namespace WaystoneCrafter
             modifier.LogMsg($"[WaystoneCrafter] Found {allMods.Count} mods on {info.Name} ({info.UniqueName})");
             
             foreach (var mod in allMods)
-            {
-                var modDef = WaystoneModDefinitions.GetModDefinition(mod.Name, mod.DisplayName);
-                var modName = modDef?.InternalName ?? mod.Name;
-                var isPrefix = modDef?.IsPrefix ?? !mod.DisplayName.StartsWith("of", StringComparison.OrdinalIgnoreCase);
-                
-                bool isGood = settings.ModSettings.TryGetValue(modName, out var setting) && setting.IsGoodMod.Value;
-                bool isBanned = settings.ModSettings.TryGetValue(modName, out setting) && setting.IsBannedMod.Value;
+    {
+        var modDef = WaystoneModDefinitions.GetModDefinition(mod.Name, mod.DisplayName);
+        var modName = modDef?.InternalName ?? mod.Name;
+        var isPrefix = modDef?.IsPrefix ?? !mod.DisplayName.StartsWith("of", StringComparison.OrdinalIgnoreCase);
+        
+        // Get the display name without "of " prefix for suffix property names
+        var settingsName = mod.DisplayName;
+        if (settingsName.StartsWith("of ", StringComparison.OrdinalIgnoreCase))
+        {
+            settingsName = settingsName.Substring(3);
+        }
+        
+        // Simply check if the mod is good or banned using display name
+        var goodToggleName = $"{settingsName}Good";
+        var bannedToggleName = $"{settingsName}Banned";
+        
+        var goodProp = typeof(WaystoneCrafterSettings).GetProperty(goodToggleName);
+        var bannedProp = typeof(WaystoneCrafterSettings).GetProperty(bannedToggleName);
+        
+        bool isGood = goodProp?.GetValue(settings) is ToggleNode goodNode && goodNode.Value;
+        bool isBanned = bannedProp?.GetValue(settings) is ToggleNode bannedNode && bannedNode.Value;
 
-                if (modDef == null)
-                {
-                    modifier.LogMsg($"[WaystoneCrafter] Warning: No mod definition found for {modName} ({mod.DisplayName})");
-                }
-                
-                info.Mods.Add((modName, mod.DisplayName, isGood, isBanned, isPrefix));
-                modifier.LogMsg($"[WaystoneCrafter] Found mod on {info.UniqueName}: {modName} ({mod.DisplayName}) - {(isPrefix ? "Prefix" : "Suffix")}, Good: {isGood}, Banned: {isBanned}");
-            }
+        if (modDef == null)
+        {
+            modifier.LogMsg($"[WaystoneCrafter] Warning: No mod definition found for {modName} ({mod.DisplayName})");
+        }
+        
+        info.Mods.Add((modName, mod.DisplayName, isGood, isBanned, isPrefix));
+        modifier.LogMsg($"[WaystoneCrafter] Found mod on {info.UniqueName}: {modName} ({mod.DisplayName}) - {(isPrefix ? "Prefix" : "Suffix")}, Good: {isGood}, Banned: {isBanned}");
+    }
 
             // Count prefixes and suffixes
             info.PrefixCount = info.Mods.Count(m => m.IsPrefix);
