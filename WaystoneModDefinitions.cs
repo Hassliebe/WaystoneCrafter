@@ -349,7 +349,7 @@ namespace WaystoneCrafter
             },
             new ModDefinition
             {
-                InternalName = "MapSpreadGroundEffect",
+                InternalName = "MapSpreadChilledGround",
                 DisplayName = "of Ice",
                 Description = "Chilled Ground\n+% Waystones found",
                 IsPrefix = false,

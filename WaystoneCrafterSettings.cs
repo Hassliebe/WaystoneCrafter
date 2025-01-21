@@ -71,8 +71,8 @@ namespace WaystoneCrafter
         [Menu("Fill Suffixes", "Continue crafting until map has 3 suffixes after prefixes are full", 2, 1)]
         public ToggleNode AlwaysFillAffixes { get; set; } = new ToggleNode(false);
 
-        [Menu("Max Waystones to Craft", 3, 1)]
-        public RangeNode<int> MaxWaystonesToCraft { get; set; } = new RangeNode<int>(10, 1, 60);
+        [Menu("Max Waystones to Craft", "Maximum number of waystones to craft at once (capped at 10 to prevent inventory issues)", 3, 1)]
+        public RangeNode<int> MaxWaystonesToCraft { get; set; } = new RangeNode<int>(10, 1, 10);
 
         [Menu("Hotkeys", 5)]
         public EmptyNode HotkeysHeader { get; set; } = new EmptyNode();
@@ -109,6 +109,12 @@ namespace WaystoneCrafter
 
         [Menu("Action Delay (ms)", "Delay between actions like clicking items", 22, 20)]
         public RangeNode<int> ActionDelay { get; set; } = new RangeNode<int>(100, 50, 500);
+
+        [Menu("Hover Item Delay (ms)", "Delay between hovering over items", 23, 20)]
+        public RangeNode<int> HoverItemDelay { get; set; } = new RangeNode<int>(50, 10, 500);
+
+        [Menu("Stash Item Delay (ms)", "Delay between stashing items", 24, 20)]
+        public RangeNode<int> StashItemDelay { get; set; } = new RangeNode<int>(100, 10, 500);
 
         [Menu("Crafting Settings", 30)]
         public EmptyNode CraftingSettings { get; set; } = new EmptyNode();
@@ -593,13 +599,22 @@ namespace WaystoneCrafter
         [Menu("Banned", "", 296, 294)]
         public ToggleNode EnervationBanned { get; set; } = new ToggleNode(false);
 
-        [Menu("Ground Effects", 297, 200)]
+        [Menu("Ice (Chilled Ground)", 300, 200)]
+        public EmptyNode ChilledGroundHeader { get; set; } = new EmptyNode();
+
+        [Menu("Good", "", 301, 300)]
+        public ToggleNode ChilledGroundGood { get; set; } = new ToggleNode(false);
+
+        [Menu("Banned", "", 302, 300)]
+        public ToggleNode ChilledGroundBanned { get; set; } = new ToggleNode(false);
+
+        [Menu("Ground Effects", 303, 200)]
         public EmptyNode GroundEffectsHeader { get; set; } = new EmptyNode();
 
-        [Menu("Good", "", 298, 297)]
+        [Menu("Good", "", 304, 303)]
         public ToggleNode GroundEffectsGood { get; set; } = new ToggleNode(false);
 
-        [Menu("Banned", "", 299, 297)]
+        [Menu("Banned", "", 305, 303)]
         public ToggleNode GroundEffectsBanned { get; set; } = new ToggleNode(false);
 
         private Dictionary<string, ModSetting> _modSettings = new Dictionary<string, ModSetting>();
@@ -752,6 +767,7 @@ namespace WaystoneCrafter
             ModSettings["MapMonstersBaseSelfCriticalMultiplier"] = new ModSetting { IsGoodMod = ObstructionGood, IsBannedMod = ObstructionBanned };
             ModSettings["MapMonstersCurseEffectOnSelfFinal"] = new ModSetting { IsGoodMod = HexwardedGood, IsBannedMod = HexwardedBanned };
             ModSettings["MapMonstersStealChargesOnHit"] = new ModSetting { IsGoodMod = EnervationGood, IsBannedMod = EnervationBanned };
+            ModSettings["MapSpreadChilledGround"] = new ModSetting { IsGoodMod = ChilledGroundGood, IsBannedMod = ChilledGroundBanned };
             ModSettings["MapSpreadGroundEffect"] = new ModSetting { IsGoodMod = GroundEffectsGood, IsBannedMod = GroundEffectsBanned };
             ModSettings["MapSalvagersChests"] = new ModSetting { IsGoodMod = SalvagerGood, IsBannedMod = SalvagerBanned };
             ModSettings["MapBarons"] = new ModSetting { IsGoodMod = BaronGood, IsBannedMod = BaronBanned };
